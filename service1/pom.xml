@@ -12,7 +12,7 @@
     <artifactId>service1</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>web</module>
+        <module>service1.web</module>
     </modules>
 
 </project>
