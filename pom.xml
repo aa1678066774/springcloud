@@ -18,6 +18,7 @@
         <module>service1</module>
         <module>eureka</module>
         <module>service2</module>
+        <module>turbine</module>
     </modules>
 
     <properties>
