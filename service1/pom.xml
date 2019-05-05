@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>service1.web</module>
+        <module>service1.api</module>
     </modules>
 
 </project>
