@@ -19,6 +19,7 @@
         <module>eureka</module>
         <module>service2</module>
         <module>turbine</module>
+        <module>gateway</module>
     </modules>
 
     <properties>
