@@ -10,4 +10,6 @@ import java.util.List;
 public interface IUserService {
 
 	public List<User> selectAll();
+
+	public Integer insertUser(String name);
 }

@@ -1,0 +1,29 @@
+server:
+  port: 4044
+
+spring:
+  application:
+    name: spring-cloud-service4
+  cloud:
+    stream:
+      binders:
+        test:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                addresses: localhost
+                port: 5672
+                username: tww
+                password: 12345678
+                virtual-host: /
+      bindings:
+        testInPut:
+          destination: testRabbit
+          content-type: application/json
+          default-binder: test
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:3030/eureka/

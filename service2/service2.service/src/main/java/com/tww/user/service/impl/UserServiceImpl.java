@@ -21,4 +21,10 @@ public class UserServiceImpl  implements IUserService {
 	public List<User> selectAll() {
 		return userDao.selectAll();
 	}
+
+	@Override
+	public Integer insertUser(String name) {
+		User user=new User();
+		return userDao.insertUser(user);
+	}
 }

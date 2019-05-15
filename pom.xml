@@ -20,6 +20,9 @@
         <module>service2</module>
         <module>turbine</module>
         <module>gateway</module>
+        <module>service3</module>
+        <module>service4</module>
+        <module>common</module>
     </modules>
 
     <properties>
