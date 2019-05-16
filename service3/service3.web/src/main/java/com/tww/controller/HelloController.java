@@ -17,7 +17,7 @@ public class HelloController {
 
 	@RequestMapping("/hello/{name}")
 	public String sayHello(	@PathVariable String name){
-		mqMessageProducer.sendMsg("12345678");
+		mqMessageProducer.sendMsg(name);
 		return "hello,"+name;
 	}
 }

@@ -22,6 +22,7 @@ spring:
           destination: testRabbit
           content-type: application/json
           default-binder: test
+          group: stream-exception-handler
 
 eureka:
   client:

@@ -23,6 +23,7 @@
         <module>service3</module>
         <module>service4</module>
         <module>common</module>
+        <module>test</module>
     </modules>
 
     <properties>
