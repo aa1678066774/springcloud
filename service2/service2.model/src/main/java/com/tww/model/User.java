@@ -1,21 +1,14 @@
 package com.tww.model;
 
-import java.util.Date;
-
 /**
  * Create by tangweiwei on 2019/4/30.
  */
 public class User {
 
 	private Long id;
-
 	private String name;
 	private Integer age;
-
-	private Date birthDay;
-
-	private Integer classId;
-
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -41,19 +34,11 @@ public class User {
 		this.age = age;
 	}
 
-	public Date getBirthDay() {
-		return birthDay;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setBirthDay(Date birthDay) {
-		this.birthDay = birthDay;
-	}
-
-	public Integer getClassId() {
-		return classId;
-	}
-
-	public void setClassId(Integer classId) {
-		this.classId = classId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
