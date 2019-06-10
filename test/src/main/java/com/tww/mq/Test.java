@@ -23,7 +23,7 @@ public class Test {
 		 System.out.println(3333);
 		 
 		 
-		 System.out.println("wweew");
+		 System.out.println("哦靠考虑考");
 
 	}
 }
