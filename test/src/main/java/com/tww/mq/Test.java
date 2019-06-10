@@ -14,5 +14,7 @@ public class Test {
 
 
 //		System.out.println(123789);
+
+        System.currentTimeMillis();
 	}
 }
