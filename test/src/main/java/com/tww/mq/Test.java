@@ -19,5 +19,6 @@ public class Test {
         System.out.println(0000000);
 		
 		 System.out.println(1111);
+		 System.out.println(2222);
 	}
 }
