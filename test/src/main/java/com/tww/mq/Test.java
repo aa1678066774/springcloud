@@ -11,5 +11,8 @@ public class Test {
 		System.out.println("");
 		int s=11;
 		System.out.println(s);
+
+
+		System.out.println(123789);
 	}
 }
