@@ -15,15 +15,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <modules>
-        <module>service1</module>
-        <module>eureka</module>
-        <module>service2</module>
-        <module>turbine</module>
-        <module>gateway</module>
-        <module>service3</module>
-        <module>service4</module>
+        <module>eureka-server</module>
+        <module>gateway-server</module>
+        <module>turbine-server</module>
+
+        <module>test1-server</module>
+        <module>test2-server</module>
+
+        <module>mq1-server</module>
+        <module>mq2-server</module>
+
         <module>common</module>
-        <module>test</module>
     </modules>
 
     <properties>
