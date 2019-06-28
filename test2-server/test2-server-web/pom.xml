@@ -56,12 +56,12 @@
         </dependency>
         <dependency>
             <groupId>com.test</groupId>
-            <artifactId>service1.api</artifactId>
+            <artifactId>test1-server-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.test</groupId>
-            <artifactId>service2.service</artifactId>
+            <artifactId>test2-server-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
