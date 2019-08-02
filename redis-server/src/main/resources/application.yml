@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: redis-server
+
+  redis:
+    timeout: 5000
+    password:
+    cluster:
+      max-redirects: 3
+      nodes:
+        - 216.24.180.176:8001
+        - 216.24.180.176:8002
+        - 216.24.180.176:8003
+        - 216.24.180.176:8004
+        - 216.24.180.176:8005
+        - 216.24.180.176:8006
+    lettuce:
+      pool:
+        max-active: 1000  #连接池最大连接数（使用负值表示没有限制）
+        max-idle: 10 # 连接池中的最大空闲连接
+        min-idle: 5 # 连接池中的最小空闲连接
+        max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
+
+
+server:
+  port: 4046
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:3030/eureka/
+

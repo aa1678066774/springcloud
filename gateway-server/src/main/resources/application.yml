@@ -8,10 +8,25 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: service1
+          uri: lb://spring-cloud-service1
+          predicates:
+              - Path=/spring-cloud/**
+          filters:
+            - StripPrefix=1
+
+        - id: ssoservice
+          uri: lb://sso-server
+          predicates:
+            - Path=/ssoserver/**
+          filters:
+              - StripPrefix=1
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:3030/eureka/
 logging:
   level:
-    org.springframework.cloud.gateway: info
+    org.springframework.cloud.gateway: debug

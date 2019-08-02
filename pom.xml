@@ -26,6 +26,9 @@
         <module>mq2-server</module>
 
         <module>common</module>
+        <module>sso-server</module>
+        <module>redis-server</module>
+        <module>es-server</module>
     </modules>
 
     <properties>
