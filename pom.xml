@@ -29,6 +29,8 @@
         <module>sso-server</module>
         <module>redis-server</module>
         <module>es-server</module>
+        <module>netty-server</module>
+        <module>file-server</module>
     </modules>
 
     <properties>

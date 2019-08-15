@@ -19,3 +19,4 @@
 *.class
 *.log
 !application.properties
+target
