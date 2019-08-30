@@ -2,6 +2,9 @@ package com.tww.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.scheduling.support.CronTrigger;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ScheduledFuture;
 
 /**
@@ -59,5 +63,42 @@ public class DynamicController {
         scheduledFutures.put(taskName,scheduledFuture);
         System.out.println("start task done");
         return "start task done";
+    }
+
+
+    @RequestMapping("/start1")
+    public String startTask1(String taskName){
+        /**
+         * task:定时任务要执行的方法
+         * trigger:定时任务执行的时间
+         */
+        ListenableFuture<String> future=threadPoolTaskScheduler.submitListenable(getCallable(taskName));
+        future.addCallback(new ListenableFutureCallback<String>() {
+
+            @Override
+            public void onSuccess(String result) {
+                //TODO
+                System.out.println("success:"+result);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                // TODO Auto-generated method stub
+                System.out.println("fail");
+            }
+
+        });
+        System.out.println("start task done");
+        return "start task done";
+    }
+
+    private Callable<String> getCallable(String taskName) {
+        Callable<String> task = new Callable() {
+            @Override
+            public String call() throws Exception {
+                return taskName+"aaa";
+            }
+        };
+        return task;
     }
 }

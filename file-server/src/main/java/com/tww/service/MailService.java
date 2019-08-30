@@ -51,9 +51,10 @@ public class MailService {
         MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
 
         messageHelper.setFrom("it-notice@shangshibang.com");
-        String[] strs=new String[2];
-        strs[0]="weiweitang@shangshibang.com";
-        strs[1]="13548755742@163.com";
+        String[] strs=new String[3];
+        strs[0]="kongchenwei@shangshibang.com";
+        strs[1]="weiweitang@shangshibang.com";
+        strs[2]="frankfan@shangshibang.com";
         messageHelper.setTo(strs);
 
         messageHelper.setSubject(subject);

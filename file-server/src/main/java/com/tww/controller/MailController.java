@@ -35,7 +35,7 @@ public class MailController {
     @RequestMapping("/sendmailwithfile")
     public String sendMailWithFile() throws MessagingException {
         Map<String, String> attachmentMap = new HashMap<>();
-        attachmentMap.put("附件.txt", "http://127.0.0.1:4051/file/a.txt");
+        attachmentMap.put("附件.pdf", "http://127.0.0.1:4051/file/111.pdf");
         mailService.sendHtmlMail("测试发送附件","这是解析失败的银行流水",attachmentMap);
         return "发送成功";
     }
