@@ -1,5 +1,6 @@
 package com.tww.controller;
 
+import com.tww.feginInterface.Test1Remote;
 import com.tww.feginInterface.TestRemote;
 import com.tww.model.User;
 import com.tww.user.service.AsyncService;
@@ -26,6 +27,9 @@ public class TestController {
 	private TestRemote testRemote;
 
 	@Autowired
+	private Test1Remote test1Remote;
+
+	@Autowired
 	private IUserService userService;
 
 	@Autowired
@@ -34,7 +38,7 @@ public class TestController {
 	@RequestMapping("/test/{name}")
 	public String index(@PathVariable String name) {
 		System.out.println(testRemote.index(name));
-
+		System.out.println(test1Remote.index(name));
 		return "this is first messge! test "+name;
 	}
 
