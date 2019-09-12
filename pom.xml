@@ -31,6 +31,7 @@
         <module>es-server</module>
         <module>netty-server</module>
         <module>file-server</module>
+        <module>transaction-server</module>
     </modules>
 
     <properties>

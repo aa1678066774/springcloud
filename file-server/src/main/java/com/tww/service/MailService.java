@@ -9,15 +9,18 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriUtils;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeUtility;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLDecoder;
 import java.util.Map;
 
 /**
@@ -48,13 +51,13 @@ public class MailService {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
         //是否发送的邮件是富文本（附件，图片，html等）
-        MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
+        MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true,"utf-8");
 
         messageHelper.setFrom("it-notice@shangshibang.com");
-        String[] strs=new String[3];
-        strs[0]="kongchenwei@shangshibang.com";
-        strs[1]="weiweitang@shangshibang.com";
-        strs[2]="frankfan@shangshibang.com";
+        String[] strs=new String[1];
+        strs[0]="weiweitang@shangshibang.com";
+//        strs[1]="kongchenwei@shangshibang.com";
+//        strs[2]="frankfan@shangshibang.com";
         messageHelper.setTo(strs);
 
         messageHelper.setSubject(subject);
@@ -63,7 +66,7 @@ public class MailService {
         if(attachmentMap != null){
             attachmentMap.entrySet().stream().forEach(entrySet -> {
                 try {
-                    messageHelper.addAttachment(entrySet.getKey(), new ByteArrayResource(IOUtils.toByteArray(getInputStream(entrySet.getValue()))));
+                    messageHelper.addAttachment(MimeUtility.encodeWord(entrySet.getKey(),"utf-8","B"), new ByteArrayResource(IOUtils.toByteArray(getInputStream(entrySet.getValue()))));
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 }catch (IOException e) {
@@ -79,6 +82,8 @@ public class MailService {
         URLConnection urlConnection = null;
         URL url = null;
         try {
+            destUrl=destUrl.replaceAll("%20", " ");
+            destUrl= UriUtils.encodePath(destUrl,  "UTF-8");
             url = new URL(destUrl);
             urlConnection = url.openConnection();
             inputStream = urlConnection.getInputStream();
