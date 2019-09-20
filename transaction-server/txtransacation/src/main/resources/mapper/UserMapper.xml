@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tww.user.dao.UserDao" >
+  <resultMap id="BaseResultMap" type="com.tww.user.entity.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="birthday" property="birthday" jdbcType="DATE" javaType="java.util.Date" />
+    <result column="create_time" property="createTime" jdbcType="DATE" javaType="java.util.Date" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR"  />
+    <result column="name" property="name" jdbcType="VARCHAR"  />
+    <result column="sex" property="sex" jdbcType="TINYINT"  />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    birthday,create_time,id,mobile,name,sex
+  </sql>
+  
+  <insert id="insertUser" parameterType="com.tww.user.entity.User">
+  	insert into USER (
+  	<trim suffixOverrides=",">
+  		<if test="birthday!=null">
+  			birthday,
+  		</if>
+  		<if test="createTime!=null">
+  			create_time,
+  		</if>
+  		<if test="id!=null">
+  			id,
+  		</if>
+  		<if test="mobile!=null">
+  			mobile,
+  		</if>
+  		<if test="name!=null">
+  			name,
+  		</if>
+  		<if test="sex!=null">
+  			sex,
+  		</if>
+  	</trim>
+  	)values (
+  	<trim suffixOverrides=",">
+  		<if test="birthday!=null">
+  			#{birthday,jdbcType=DATE},
+  		</if>
+  	  		<if test="createTime!=null">
+  			#{createTime,jdbcType=DATE},
+  		</if>
+  	  		<if test="id!=null">
+  			#{id,jdbcType=BIGINT},
+  		</if>
+  	  		<if test="mobile!=null">
+  			#{mobile,jdbcType=VARCHAR},
+  		</if>
+  	  		<if test="name!=null">
+  			#{name,jdbcType=VARCHAR},
+  		</if>
+  	  		<if test="sex!=null">
+  			#{sex,jdbcType=TINYINT},
+  		</if>
+  	</trim>)
+  </insert>
+  <insert id="insertUser1" parameterType="com.tww.user.entity.User">
+  	insert into USER (
+  	<trim suffixOverrides=",">
+		birthday,
+		create_time,
+		id,
+		mobile,
+		name,
+		sex,
+  	</trim>
+  	)values (
+  	<trim suffixOverrides=",">
+	  	#{birthday,jdbcType=DATE},
+	  	#{createTime,jdbcType=DATE},
+	  	#{id,jdbcType=BIGINT},
+	  	#{mobile,jdbcType=VARCHAR},
+	  	#{name,jdbcType=VARCHAR},
+	  	#{sex,jdbcType=TINYINT},
+  	</trim>
+  	)
+  </insert>
+  
+  <update id="updateUser" parameterType="com.tww.user.entity.User">
+  	update USER <set>
+  	<if test="birthday!=null">
+  	birthday=#{birthday,jdbcType=DATE},
+  	</if>
+  	<if test="createTime!=null">
+  	create_time=#{createTime,jdbcType=DATE},
+  	</if>
+  	<if test="id!=null">
+  	id=#{id,jdbcType=BIGINT},
+  	</if>
+  	<if test="mobile!=null">
+  	mobile=#{mobile,jdbcType=VARCHAR},
+  	</if>
+  	<if test="name!=null">
+  	name=#{name,jdbcType=VARCHAR},
+  	</if>
+  	<if test="sex!=null">
+  	sex=#{sex,jdbcType=TINYINT}
+  	</if>
+  	</set> 
+  	where id=#{id,jdbcType=BIGINT} and id=#{id,jdbcType=BIGINT} and id=#{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="updateUser1" parameterType="com.tww.user.entity.User">
+  	update USER <set>
+  	birthday=#{birthday,jdbcType=DATE},
+  	create_time=#{createTime,jdbcType=DATE},
+  	id=#{id,jdbcType=BIGINT},
+  	mobile=#{mobile,jdbcType=VARCHAR},
+  	name=#{name,jdbcType=VARCHAR},
+  	sex=#{sex,jdbcType=TINYINT}
+  	</set> 
+  	where id=#{id,jdbcType=BIGINT} and id=#{id,jdbcType=BIGINT} and id=#{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="getUserList" parameterType="UserQuery" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/> from USER where 1=1
+  	<if test="birthday!=null">
+  	and birthday=#{birthday,jdbcType=DATE}
+  	</if>
+  	<if test="createTime!=null">
+  	and create_time=#{createTime,jdbcType=DATE}
+  	</if>
+  	<if test="id!=null">
+  	and id=#{id,jdbcType=BIGINT}
+  	</if>
+  	<if test="mobile!=null">
+  	and mobile=#{mobile,jdbcType=VARCHAR}
+  	</if>
+  	<if test="name!=null">
+  	and name=#{name,jdbcType=VARCHAR}
+  	</if>
+  	<if test="sex!=null">
+  	and sex=#{sex,jdbcType=TINYINT}
+  	</if>
+  	order by id desc , id desc , id desc
+  </select>
+  <select id="countUser" parameterType="UserQuery" resultType="int">
+  	select count(*) from USER where 1=1
+  	<if test="birthday!=null">
+  	and birthday=#{birthday,jdbcType=DATE}
+  	</if>
+  	<if test="createTime!=null">
+  	and create_time=#{createTime,jdbcType=DATE}
+  	</if>
+  	<if test="id!=null">
+  	and id=#{id,jdbcType=BIGINT}
+  	</if>
+  	<if test="mobile!=null">
+  	and mobile=#{mobile,jdbcType=VARCHAR}
+  	</if>
+  	<if test="name!=null">
+  	and name=#{name,jdbcType=VARCHAR}
+  	</if>
+  	<if test="sex!=null">
+  	and sex=#{sex,jdbcType=TINYINT}
+  	</if>
+  </select>
+  <delete id="deleteUser" parameterType="UserQuery">
+  		delete from USER where 1=1
+		  	<if test="birthday!=null">
+		  	and birthday=#{birthday,jdbcType=DATE}
+		  	</if>
+		  	<if test="createTime!=null">
+		  	and create_time=#{createTime,jdbcType=DATE}
+		  	</if>
+		  	<if test="id!=null">
+		  	and id=#{id,jdbcType=BIGINT}
+		  	</if>
+		  	<if test="mobile!=null">
+		  	and mobile=#{mobile,jdbcType=VARCHAR}
+		  	</if>
+		  	<if test="name!=null">
+		  	and name=#{name,jdbcType=VARCHAR}
+		  	</if>
+		  	<if test="sex!=null">
+		  	and sex=#{sex,jdbcType=TINYINT}
+		  	</if>
+  </delete>
+</mapper>

@@ -60,18 +60,11 @@ public class UserController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST,produces="application/json")
 	public ApiResult<String> addUser(@RequestBody User apiParam){
 		ApiResult<String> result=new ApiResult<String>();
-		try {
-			userService.insertUser(apiParam);
-		}catch (ArithmeticException e){
-			result.setSuccess(true);
-			result.setMessage("新增失败");
-			result.setData("新增失败");
-			result.setCode("1");
-		}
+        userService.insertUser(apiParam);
         result.setSuccess(true);
         result.setMessage("新增成功");
         result.setData("新增成功");
-        result.setCode("0");
+        result.setCode("200");
         return result;
 	}
 

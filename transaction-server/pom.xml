@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>transaction1</module>
+        <module>txtransacation</module>
+        <module>tm</module>
     </modules>
 
 

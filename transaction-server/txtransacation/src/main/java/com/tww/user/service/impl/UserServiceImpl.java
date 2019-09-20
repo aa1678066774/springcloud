@@ -1,27 +1,24 @@
 package com.tww.user.service.impl;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.List;
-
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
+import com.tww.user.dao.UserDao;
+import com.tww.user.entity.User;
+import com.tww.user.entity.UserQuery;
+import com.tww.user.fegin.UserFegin;
+import com.tww.user.service.UserService;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-
-import com.tww.user.entity.User;
-import com.tww.user.entity.UserQuery;
-import com.tww.user.service.UserService;
-import com.tww.user.dao.UserDao;
 import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 操作相关
@@ -36,6 +33,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private SqlSessionFactory factory;
+
+	@Autowired
+	private UserFegin userFegin;
 
 	/**
 	 * Isolation.READ_UNCOMMITTED 最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读
@@ -93,11 +93,8 @@ public class UserServiceImpl implements UserService {
 	public void insertUser(User data) {
 		// TODO Auto-generated method stub
 		userDao.insertUser(data);
-		int i=1/0;
-		User user= new User();
-		BeanUtils.copyProperties(data,user);
-		user.setName(data.getName()+"_copy");
-		userDao.insertUser(user);
+
+		userFegin.index(data);
 	}
 
 	@Override
