@@ -32,6 +32,7 @@
         <module>netty-server</module>
         <module>file-server</module>
         <module>transaction-server</module>
+        <module>java-test-server</module>
     </modules>
 
     <properties>
