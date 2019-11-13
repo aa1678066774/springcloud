@@ -33,6 +33,11 @@
         <module>file-server</module>
         <module>transaction-server</module>
         <module>java-test-server</module>
+        <module>mongo-server</module>
+        <module>jooq-server</module>
+        <module>micrometer-server</module>
+        <module>webflux-server</module>
+        <module>util-server</module>
     </modules>
 
     <properties>
