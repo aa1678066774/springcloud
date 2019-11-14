@@ -38,6 +38,7 @@
         <module>micrometer-server</module>
         <module>webflux-server</module>
         <module>util-server</module>
+        <module>neo4j-server</module>
     </modules>
 
     <properties>
