@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<h1 align="center">欢迎光临瓦尔哈拉-众神管理系统</h1>
+<div sec:authorize="!isAuthenticated()">
+    <h2 align="center">凡人，如果想查看众神系统 <a th:href="@{/login}">请登录</a></h2>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <h2><span sec:authentication="name"></span>，您好，您的角色有:
+        <span sec:authentication="principal.authorities"></span></h2>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="注销"/>
+    </form>
+</div>
+<hr>
+<div sec:authorize="hasRole('VIP1')">
+<h3>巨人族</h3>
+<ul>
+    <li><a th:href="@{/level1/1}">伊米尔</a></li>
+    <li><a th:href="@{/level1/2}">蒂阿兹</a></li>
+    <li><a th:href="@{/level1/3}">斯卡娣</a></li>
+</ul>
+</div>
+<div sec:authorize="hasRole('VIP2')">
+<h3>其他神祗</h3>
+<ul>
+    <li><a th:href="@{/level2/1}">女神格欧费茵</a></li>
+    <li><a th:href="@{/level2/2}">瓦利</a></li>
+    <li><a th:href="@{/level2/3}">林德</a></li>
+</ul>
+</div>
+
+<div sec:authorize="hasRole('VIP3')">
+<h3>主神</h3>
+<ul>
+    <li><a th:href="@{/level3/1}">奥丁</a></li>
+    <li><a th:href="@{/level3/2}">弗丽嘉</a></li>
+    <li><a th:href="@{/level3/3}">索尔</a></li>
+</ul>
+</div>
+</body>
+</html>

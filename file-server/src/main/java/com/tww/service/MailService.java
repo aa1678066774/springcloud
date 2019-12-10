@@ -38,7 +38,7 @@ public class MailService {
     public void sendSimpleMail(String subject, String text) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom("a18038155494@163.com");
-        mailMessage.setTo("weiweitang@shangshibang.com");
+        mailMessage.setTo("13548755742@163.com");
 
         mailMessage.setSubject(subject);
         mailMessage.setText(text);

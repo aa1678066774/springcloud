@@ -39,6 +39,9 @@
         <module>webflux-server</module>
         <module>util-server</module>
         <module>neo4j-server</module>
+        <module>mybatis-server</module>
+        <module>spider</module>
+        <module>security-server</module>
     </modules>
 
     <properties>

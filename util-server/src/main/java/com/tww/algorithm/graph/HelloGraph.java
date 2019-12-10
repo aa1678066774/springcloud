@@ -7,11 +7,15 @@ import org.jgrapht.alg.interfaces.ShortestPathAlgorithm;
 import org.jgrapht.alg.interfaces.StrongConnectivityAlgorithm;
 import org.jgrapht.alg.shortestpath.AllDirectedPaths;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
+import org.jgrapht.generate.CompleteGraphGenerator;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.traverse.DepthFirstIterator;
 
-import java.net.URI;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.net.URISyntaxException;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -79,5 +83,18 @@ public class HelloGraph {
         list.stream().forEach(item->{
             System.out.println(item.getEdgeList());
         });
+
+
+        String start = directedGraph
+                .vertexSet().stream().filter(str -> str.equals("a")).findAny()
+                .get();
+        System.out.println(start);
+
+
+        Iterator<String> iterator = new DepthFirstIterator<>(directedGraph, start);
+        while (iterator.hasNext()) {
+            String str = iterator.next();
+            System.out.println(str);
+        }
     }
 }
