@@ -1,0 +1,11 @@
+package rules;
+
+import java.lang.String;
+import java.util.List;
+
+rule "hello,word"
+    when
+        eval(true)
+    then
+        System.err.println("hello,word!");
+end
