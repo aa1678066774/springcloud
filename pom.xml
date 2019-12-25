@@ -44,6 +44,7 @@
         <module>security-server</module>
         <module>java-base</module>
         <module>cache-server</module>
+        <module>sharding</module>
     </modules>
 
     <properties>
