@@ -45,6 +45,8 @@
         <module>java-base</module>
         <module>cache-server</module>
         <module>sharding</module>
+        <module>leetcode</module>
+        <module>rocketmq-server</module>
     </modules>
 
     <properties>
