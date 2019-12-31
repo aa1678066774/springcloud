@@ -1,6 +1,6 @@
 package com.tww;
 
-import com.tww.config.NettyServer;
+import com.tww.rocketmq.config.NettyServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

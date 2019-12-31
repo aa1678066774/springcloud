@@ -1,6 +1,6 @@
 package com.tww.feginInterface;
 
-import com.tww.config.Fegin2RequestInterceptor;
+import com.tww.rocketmq.config.Fegin2RequestInterceptor;
 import com.tww.hystrix.Test1Hystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

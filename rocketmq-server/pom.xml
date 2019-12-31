@@ -36,6 +36,10 @@
             <artifactId>lombok</artifactId>
             <version>1.16.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
