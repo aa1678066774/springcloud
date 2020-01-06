@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @create: 2019-12-25 17:56
  */
 @Slf4j
-@RestController
+//@RestController
 public class TestController {
 
     @Autowired

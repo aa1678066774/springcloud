@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @create: 2019-12-25 17:50
  */
 @Slf4j
-@Component
+//@Component
 public class Producer {
 
     private String producerGroup = "test_producer";

@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
  * @create: 2019-12-25 17:52
  */
 @Slf4j
-@Configuration
+//@Configuration
 public class Consumer {
 
 //    @Component
