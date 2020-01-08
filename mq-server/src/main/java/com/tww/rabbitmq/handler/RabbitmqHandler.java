@@ -19,7 +19,7 @@ public class RabbitmqHandler {
     /**
      * 一对一
      * exclusive 如果{@code true}，则容器中的单个使用者将独占使用
-     * * {@link #queues（）}，以防止其他使用者接收来自
+     * ，以防止其他使用者接收来自
      * *队列。 当{@code true}时，要求并发1。默认{@code false}。
      * * @返回{@code Exclusive}布尔值标志。
      * priority  该端点的优先级。 需要RabbitMQ 3.2或更高版本。 不变
