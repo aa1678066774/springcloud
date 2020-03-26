@@ -88,16 +88,15 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	@LcnTransaction
 	@Transactional
 	public void insertUser(User data) {
 		// TODO Auto-generated method stub
 		userDao.insertUser(data);
-		int i=1/0;
 		User user= new User();
 		BeanUtils.copyProperties(data,user);
 		user.setName(data.getName()+"_copy");
 		userDao.insertUser(user);
+		int i=1/0;
 	}
 
 	@Override

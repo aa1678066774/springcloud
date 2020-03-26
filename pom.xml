@@ -46,7 +46,7 @@
         <module>cache-server</module>
         <module>sharding</module>
         <module>leetcode</module>
-        <module>rocketmq-server</module>
+        <module>mq-server</module>
     </modules>
 
     <properties>
