@@ -1,10 +1,17 @@
 package com.tww.util;
 
+import com.alibaba.fastjson.JSON;
 import com.sun.jmx.remote.internal.ArrayQueue;
+import lombok.Data;
+import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -16,7 +23,7 @@ import java.util.stream.IntStream;
  * @create: 2020-01-19 17:11
  */
 public class Test {
-    public static void main(String[] args) throws UnsupportedEncodingException {
+    public static void main(String[] args) throws IOException {
         //System.out.println(new String("123%456".getBytes(Charset.forName("UTF-8")),"ISO8859-1").replace("%","abc"));
 //        printName("D:\\test");
 //        method();
@@ -57,10 +64,31 @@ public class Test {
 //        System.out.println(a.toString());
 
 
-        IntStream.range(1,2).forEach(i->{
-            System.out.println(i);
-        });
+//        IntStream.range(1,2).forEach(i->{
+//            System.out.println(i);
+////        });
+//        File file=new File("C:\\Users\\Administrator\\git\\root\\util-server\\aaa\\a.txt");
+//        File file1=new File("C:\\Users\\Administrator\\git\\root\\util-server\\bbb\\b.txt");
+////
+////        if(!file1.exists()){
+////            file1.getParentFile().mkdirs();
+////        }
+////        Files.copy(file.toPath(),file1.toPath());
+//
+//        Files.copy(file.toPath(),Files.createDirectory(Paths.get("\\bbb\\b.txt").toAbsolutePath().normalize()));
+
+//        System.out.println(Arrays.toString("a.b".split("\\.")));
+//
+//
+//        ExportMessageDto messageDto= JSON.parseObject("{\"status\": 1, \"project_id\": \"14\", \"busId\": \"2\"}", ExportMessageDto.class);
+//        System.out.println(messageDto);
+
+        Date date=new Date();
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy/MM/dd");
+        System.out.println(simpleDateFormat.format(date));
     }
+
+
 
 
     public static void method(){
@@ -82,4 +110,14 @@ public class Test {
         }
         System.out.println(file.getName());
     }
+}
+
+@Data
+class ExportMessageDto {
+
+    private Long busId;
+
+    private Long project_id;
+
+    private Integer status;
 }

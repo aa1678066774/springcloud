@@ -39,7 +39,6 @@ public class RedisController {
 //        redisTemplate.opsForValue().set("b",name);
         redisTemplate.opsForValue().set("b",user);
 
-
         ValueOperations<String, User> valueOperations = redisTemplate.opsForValue();
         User user1=valueOperations.get("b");
         System.out.println("b:"+user1.toString());
