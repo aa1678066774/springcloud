@@ -36,28 +36,32 @@ public class TestController {
 
 	@RequestMapping("/test/{name}")
 	public String index(@PathVariable String name) {
-		System.out.println(testRemote.index(name));
-		System.out.println(test1Remote.index(name));
+//		System.out.println(testRemote.index(name));
+//		System.out.println(test1Remote.index(name));
+		long start =System.currentTimeMillis();
+		List<String> names=testRemote.getList();
+		long end =System.currentTimeMillis();
+		System.out.println("fegin 耗时:"+(end-start));
 		return "this is first messge! test "+name;
 	}
-
-	@RequestMapping(value = "/getUserList",produces = "application/json")
-	public List<User> getUserList() {
-		List<User> list=userService.selectAll();
-		return list;
-	}
-
-	@RequestMapping("/testThreadPool")
-	public String submit(String name){
-		logger.info("start submit");
-
-		//调用service层的任务
-		asyncService.executeAsync(name);
-
-		logger.info("end submit");
-
-		return "success";
-	}
+//
+//	@RequestMapping(value = "/getUserList",produces = "application/json")
+//	public List<User> getUserList() {
+//		List<User> list=userService.selectAll();
+//		return list;
+//	}
+//
+//	@RequestMapping("/testThreadPool")
+//	public String submit(String name){
+//		logger.info("start submit");
+//
+//		//调用service层的任务
+//		asyncService.executeAsync(name);
+//
+//		logger.info("end submit");
+//
+//		return "success";
+//	}
 
 
 }
